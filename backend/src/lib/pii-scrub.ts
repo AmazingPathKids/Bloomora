@@ -57,3 +57,6 @@ export function scrubDeniedKeys(properties: Record<string, unknown>): Record<str
   }
   return result;
 }
+
+// DELIBERATE scratch-branch breakage for FT-009 CI verification — will be reverted.
+const unusedDeliberateBreakage = 42;
