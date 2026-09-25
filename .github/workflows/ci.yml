@@ -17,7 +17,13 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          # FT-009: was pinned to 3.24.0 (Dart 3.5.0), which made every CI
+          # run on this repo fail at `flutter pub get` — flutter_lints
+          # ^6.0.0 requires Dart ^3.8.0. This had been silently failing on
+          # every push to mvp since April with nobody noticing (no branch
+          # protection to surface it). Bumped to match the version the
+          # local dev toolchain actually uses.
+          flutter-version: '3.35.2'
           channel: 'stable'
           cache: true
 
@@ -102,7 +108,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.2'
           channel: 'stable'
           cache: true
 
@@ -150,7 +156,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.2'
           channel: 'stable'
           cache: true
 
