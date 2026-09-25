@@ -46,8 +46,49 @@ jobs:
       - name: Analyze
         run: flutter analyze --no-fatal-infos
 
+      - name: Check formatting (non-blocking)
+        # FT-009: the existing codebase isn't fully `dart format`-clean yet
+        # (65/111 files would be touched as of this check), so this can't
+        # be a required/blocking check without a separate repo-wide
+        # reformat — surfaced here as a visible, non-blocking signal
+        # instead of silently skipped or silently forced.
+        run: dart format --output=none --set-exit-if-changed lib/ test/
+        continue-on-error: true
+
       - name: Run tests
         run: flutter test --dart-define=APP_ENV=development
+
+  backend:
+    name: Backend Type-check, Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Type-check
+        working-directory: backend
+        run: npm run typecheck
+
+      - name: Lint
+        working-directory: backend
+        run: npm run lint
+
+      - name: Test
+        # vitest.config.ts bakes in fake-but-valid test env values (see
+        # that file) — no secrets needed for this job.
+        working-directory: backend
+        run: npm test
 
   build-ios:
     name: Build iOS
