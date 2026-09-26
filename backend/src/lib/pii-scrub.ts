@@ -57,3 +57,6 @@ export function scrubDeniedKeys(properties: Record<string, unknown>): Record<str
   }
   return result;
 }
+
+// DELIBERATE fork-PR verification breakage for FT-009 AC4 — will be fixed then reverted.
+const deliberateForkPrBreakage = 1;
