@@ -150,9 +150,9 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                     ),
                   ],
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.child_care,
-                  color: Colors.white,
+                  color: scheme.onPrimary,
                   size: 28,
                 ),
               ),
@@ -179,20 +179,20 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
           Container(
             height: 50,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.3),
+              color: scheme.surface.withOpacity(0.3),
               borderRadius: BorderRadius.circular(25),
               border: Border.all(
-                color: Colors.white.withOpacity(0.5),
+                color: scheme.surface.withOpacity(0.5),
                 width: 1.5,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.08),
+                  color: scheme.textPrimary.withOpacity(0.08),
                   blurRadius: 15,
                   offset: const Offset(0, 6),
                 ),
                 BoxShadow(
-                  color: Colors.white.withOpacity(0.8),
+                  color: scheme.surface.withOpacity(0.8),
                   blurRadius: 15,
                   offset: const Offset(0, -6),
                 ),
@@ -233,15 +233,15 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
           width: 44,
           height: 44,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.3),
+            color: scheme.surface.withOpacity(0.3),
             shape: BoxShape.circle,
             border: Border.all(
-              color: Colors.white.withOpacity(0.5),
+              color: scheme.surface.withOpacity(0.5),
               width: 1.5,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.08),
+                color: scheme.textPrimary.withOpacity(0.08),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -307,7 +307,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                   Text(
                     _dates[index]['day'],
                     style: TextStyle(
-                      color: isSelected ? Colors.white : scheme.textSecondary,
+                      color: isSelected ? scheme.onPrimary : scheme.textSecondary,
                       fontSize: 11,
                       fontWeight: FontWeight.w500,
                       fontFamily: 'SF Pro Text',
@@ -317,7 +317,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                   Text(
                     _dates[index]['date'],
                     style: TextStyle(
-                      color: isSelected ? Colors.white : scheme.primary,
+                      color: isSelected ? scheme.onPrimary : scheme.primary,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       fontFamily: 'SF Pro Text',
@@ -380,20 +380,20 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.3),
+        color: scheme.surface.withOpacity(0.3),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Colors.white.withOpacity(0.5),
+          color: scheme.surface.withOpacity(0.5),
           width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: scheme.textPrimary.withOpacity(0.08),
             blurRadius: 15,
             offset: const Offset(0, 6),
           ),
           BoxShadow(
-            color: Colors.white.withOpacity(0.8),
+            color: scheme.surface.withOpacity(0.8),
             blurRadius: 15,
             offset: const Offset(0, -6),
           ),
@@ -419,7 +419,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
               ),
               Icon(
                 Icons.more_vert,
-                color: Colors.grey[400],
+                color: scheme.textSecondary,
                 size: 16,
               ),
             ],
@@ -468,15 +468,15 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
               margin: const EdgeInsets.only(right: 12),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               decoration: BoxDecoration(
-                color: isSelected ? scheme.primary : Colors.white.withOpacity(0.3),
+                color: isSelected ? scheme.primary : scheme.surface.withOpacity(0.3),
                 borderRadius: BorderRadius.circular(25),
                 border: Border.all(
-                  color: isSelected ? scheme.primary : Colors.white.withOpacity(0.5),
+                  color: isSelected ? scheme.primary : scheme.surface.withOpacity(0.5),
                   width: 1.5,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.08),
+                    color: scheme.textPrimary.withOpacity(0.08),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -487,14 +487,14 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                 children: [
                   Icon(
                     _getCategoryIcon(_categories[index]),
-                    color: isSelected ? Colors.white : scheme.primary,
+                    color: isSelected ? scheme.onPrimary : scheme.primary,
                     size: 18,
                   ),
                   const SizedBox(width: 8),
                   Text(
                     _categories[index],
                     style: TextStyle(
-                      color: isSelected ? Colors.white : scheme.primary,
+                      color: isSelected ? scheme.onPrimary : scheme.primary,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       fontFamily: 'SF Pro Text',
@@ -534,7 +534,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: scheme.textPrimary.withOpacity(0.1),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -568,21 +568,21 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: scheme.onPrimary.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: const Row(
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           CircleAvatar(
                             radius: 4,
-                            backgroundColor: Colors.white,
+                            backgroundColor: scheme.onPrimary,
                           ),
-                          SizedBox(width: 6),
+                          const SizedBox(width: 6),
                           Text(
                             'Beginner',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: scheme.onPrimary,
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               fontFamily: 'SF Pro Text',
@@ -594,12 +594,12 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: scheme.onPrimary.withOpacity(0.2),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.bookmark_outline,
-                        color: Colors.white,
+                        color: scheme.onPrimary,
                         size: 20,
                       ),
                     ),
@@ -615,10 +615,10 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             'Fine Motor Skills',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: scheme.onPrimary,
                               fontSize: 24,
                               fontWeight: FontWeight.w700,
                               fontFamily: 'SF Pro Display',
@@ -627,32 +627,32 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                           const SizedBox(height: 8),
                           Row(
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.schedule,
-                                color: Colors.white,
+                                color: scheme.onPrimary,
                                 size: 16,
                               ),
                               const SizedBox(width: 4),
-                              const Text(
+                              Text(
                                 '10 Minutes',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: scheme.onPrimary,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
                                   fontFamily: 'SF Pro Text',
                                 ),
                               ),
                               const SizedBox(width: 16),
-                              const Icon(
+                              Icon(
                                 Icons.local_fire_department,
-                                color: Colors.white,
+                                color: scheme.onPrimary,
                                 size: 16,
                               ),
                               const SizedBox(width: 4),
-                              const Text(
+                              Text(
                                 '200 Points',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: scheme.onPrimary,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
                                   fontFamily: 'SF Pro Text',
@@ -667,11 +667,11 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: scheme.onPrimary,
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
+                            color: scheme.textPrimary.withOpacity(0.2),
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
@@ -719,20 +719,20 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                 margin: const EdgeInsets.only(right: 16),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.3),
+                  color: scheme.surface.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: Colors.white.withOpacity(0.5),
+                    color: scheme.surface.withOpacity(0.5),
                     width: 1.5,
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
+                      color: scheme.textPrimary.withOpacity(0.08),
                       blurRadius: 15,
                       offset: const Offset(0, 6),
                     ),
                     BoxShadow(
-                      color: Colors.white.withOpacity(0.8),
+                      color: scheme.surface.withOpacity(0.8),
                       blurRadius: 15,
                       offset: const Offset(0, -6),
                     ),

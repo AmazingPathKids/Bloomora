@@ -192,7 +192,7 @@ class _AuthPageState extends ConsumerState<AuthPage>
         _shakeCtrl.forward(from: 0);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(ref.read(authProvider).error ?? e.toString()),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.error,
         ));
       }
     } finally {
@@ -270,7 +270,7 @@ class _AuthPageState extends ConsumerState<AuthPage>
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: const Text('Google Sign-In failed. Please try again.'),
-            backgroundColor: Colors.red,
+            backgroundColor: AppColors.error,
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16)),
@@ -560,7 +560,7 @@ class _AuthPageState extends ConsumerState<AuthPage>
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
-                        color: _isSignUp ? Colors.white : scheme.textMuted,
+                        color: _isSignUp ? scheme.onPrimary : scheme.textMuted,
                       ),
                     ),
                   ),
@@ -576,7 +576,7 @@ class _AuthPageState extends ConsumerState<AuthPage>
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
-                        color: !_isSignUp ? Colors.white : scheme.textMuted,
+                        color: !_isSignUp ? scheme.onPrimary : scheme.textMuted,
                       ),
                     ),
                   ),
@@ -742,18 +742,18 @@ class _AuthPageState extends ConsumerState<AuthPage>
         ),
         child: Center(
           child: _isLoading
-              ? const SizedBox(
+              ? SizedBox(
                   width: 22,
                   height: 22,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    valueColor: AlwaysStoppedAnimation<Color>(scheme.onPrimary),
                   ),
                 )
               : Text(
                   label,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: scheme.onPrimary,
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 0.3,
@@ -852,14 +852,10 @@ class _AuthPageState extends ConsumerState<AuthPage>
           child: Container(
             height: 52,
             decoration: BoxDecoration(
-              color: scheme.isDark
-                  ? Colors.white.withValues(alpha: 0.10)
-                  : Colors.black.withValues(alpha: 0.06),
+              color: scheme.textPrimary.withValues(alpha: scheme.isDark ? 0.10 : 0.06),
               borderRadius: BorderRadius.circular(32),
               border: Border.all(
-                color: scheme.isDark
-                    ? Colors.white.withValues(alpha: 0.20)
-                    : Colors.black.withValues(alpha: 0.12),
+                color: scheme.textPrimary.withValues(alpha: scheme.isDark ? 0.20 : 0.12),
                 width: 1.0,
               ),
             ),
@@ -869,7 +865,7 @@ class _AuthPageState extends ConsumerState<AuthPage>
                 Icon(
                   Icons.apple_rounded,
                   size: 22,
-                  color: scheme.isDark ? Colors.white : Colors.black,
+                  color: scheme.textPrimary,
                 ),
                 const SizedBox(width: 10),
                 Text(
@@ -877,7 +873,7 @@ class _AuthPageState extends ConsumerState<AuthPage>
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
-                    color: scheme.isDark ? Colors.white : Colors.black,
+                    color: scheme.textPrimary,
                     letterSpacing: 0.2,
                   ),
                 ),

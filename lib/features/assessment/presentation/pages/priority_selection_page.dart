@@ -161,7 +161,7 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
           ..sort((a, b) => a.value.compareTo(b.value)));
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: scheme.background,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -178,13 +178,13 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                         width: 36,
                         height: 36,
                         decoration: BoxDecoration(
-                          color: Colors.grey.shade100,
+                          color: scheme.surfaceElevated,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.arrow_back_ios_new_rounded,
                           size: 16,
-                          color: Colors.black87,
+                          color: scheme.textPrimary,
                         ),
                       ),
                     ),
@@ -198,12 +198,12 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Choose Your Focus Areas',
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black87,
+                        color: scheme.textPrimary,
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -212,7 +212,7 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                       'your daily activities around these areas.',
                       style: TextStyle(
                         fontSize: 14,
-                        color: Colors.grey.shade500,
+                        color: scheme.textSecondary,
                         height: 1.5,
                       ),
                     ),
@@ -221,7 +221,7 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
+                        color: scheme.surfaceElevated,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Row(
@@ -293,9 +293,9 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                                 ),
                                 child: Text(
                                   domain,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.white,
+                                    color: scheme.onPrimary,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -310,7 +310,7 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                       decoration: BoxDecoration(
                         color: _selectedDomains.length == 3
                             ? scheme.primary
-                            : Colors.grey.shade300,
+                            : scheme.disabledFill,
                         borderRadius: BorderRadius.circular(27),
                         boxShadow: _selectedDomains.length == 3
                             ? [
@@ -327,10 +327,10 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                         onPressed: _selectedDomains.length == 3
                             ? () => context.go(AppRoutes.home)
                             : null,
-                        child: const Text(
+                        child: Text(
                           'Start My Plan →',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: scheme.onPrimary,
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
                           ),
@@ -373,7 +373,7 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.04),
+              color: scheme.textPrimary.withValues(alpha: 0.04),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -390,22 +390,22 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                 decoration: BoxDecoration(
                   color: isSelected
                       ? scheme.primary.withValues(alpha: 0.12)
-                      : Colors.grey.shade100,
+                      : scheme.surfaceElevated,
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   icon,
-                  color: isSelected ? scheme.primary : Colors.grey.shade400,
+                  color: isSelected ? scheme.primary : scheme.textSecondary,
                   size: 24,
                 ),
               ),
               const SizedBox(height: 10),
               Text(
                 domainName,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+                  color: scheme.textPrimary,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -436,13 +436,13 @@ class _PrioritySelectionPageState extends ConsumerState<PrioritySelectionPage> {
                   shape: BoxShape.circle,
                   border: Border.all(
                     color:
-                        isSelected ? scheme.primary : Colors.grey.shade300,
+                        isSelected ? scheme.primary : scheme.border,
                     width: 1.5,
                   ),
                 ),
                 child: isSelected
-                    ? const Icon(Icons.check_rounded,
-                        size: 13, color: Colors.white)
+                    ? Icon(Icons.check_rounded,
+                        size: 13, color: scheme.onPrimary)
                     : null,
               ),
             ],

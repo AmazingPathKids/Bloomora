@@ -179,10 +179,10 @@ class _IntroPageState extends ConsumerState<IntroPage>
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 8),
                             decoration: BoxDecoration(
-                              color: Colors.white.withValues(alpha: 0.15),
+                              color: AppColors.white.withValues(alpha: 0.15),
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
-                                color: Colors.white.withValues(alpha: 0.20),
+                                color: AppColors.white.withValues(alpha: 0.20),
                                 width: 1.0,
                               ),
                             ),
@@ -604,7 +604,7 @@ class _Slide2 extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w700,
-                                  color: Colors.white,
+                                  color: scheme.onPrimary,
                                 ),
                               ),
                             ),
@@ -875,8 +875,8 @@ class _ContentCard extends StatelessWidget {
                             currentPage == totalPages - 1
                                 ? 'Get Started'
                                 : 'Next',
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: scheme.onPrimary,
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                               letterSpacing: 0.3,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/theme/app_shadows.dart';
 import '../../../../core/theme/theme_provider.dart';
 import '../../domain/models/question_model.dart';
 
@@ -27,13 +28,8 @@ class TabQuestionCard extends ConsumerWidget {
       decoration: BoxDecoration(
         color: scheme.surface,
         borderRadius: BorderRadius.circular(14),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        border: scheme.isDark ? AppShadows.darkElevationBorder() : null,
+        boxShadow: AppShadows.elevation1(scheme.isDark),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
@@ -108,7 +104,7 @@ class TabQuestionCard extends ConsumerWidget {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
-                          color: isSelected ? Colors.white : scheme.textMuted,
+                          color: isSelected ? scheme.onPrimary : scheme.textMuted,
                         ),
                       ),
                     ),

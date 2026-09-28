@@ -133,7 +133,7 @@ class _QuestionnairePageState extends ConsumerState<QuestionnairePage>
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Icon(Icons.chat_bubble_outline_rounded,
-                  color: Colors.white, size: 20),
+                  color: AppColors.white, size: 20),
             ),
             const SizedBox(width: 12),
             const Expanded(
@@ -434,7 +434,7 @@ class _QuestionnairePageState extends ConsumerState<QuestionnairePage>
                     fontSize: 13,
                     fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
                     color: isActive
-                        ? Colors.white
+                        ? scheme.onPrimary
                         : isComplete
                             ? scheme.primary
                             : scheme.textMuted,
@@ -632,7 +632,7 @@ Widget _questionCardShell({
         decoration: BoxDecoration(
           color: scheme.isDark
               ? scheme.glassBase
-              : Colors.white.withValues(alpha: 0.70),
+              : scheme.surface.withValues(alpha: 0.70),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(color: scheme.glassBorder, width: 1),
           boxShadow: const [
@@ -861,7 +861,7 @@ class _AnswerButtons extends StatelessWidget {
                       ],
                     )
                   : BoxDecoration(
-                      color: Colors.white,
+                      color: scheme.surface,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         color: scheme.glassBorder,
@@ -886,7 +886,7 @@ class _AnswerButtons extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: isSelected ? FontWeight.w700 : FontWeight.w600,
-                    color: isSelected ? Colors.white : scheme.textMuted,
+                    color: isSelected ? scheme.onPrimary : scheme.textMuted,
                   ),
                 ),
               ),

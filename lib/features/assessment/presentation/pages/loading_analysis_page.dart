@@ -540,11 +540,11 @@ class _LoadingAnalysisPageState extends ConsumerState<LoadingAnalysisPage>
                   ),
                 ],
               ),
-              child: const Center(
+              child: Center(
                 child: Text(
                   'View Results',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: scheme.onPrimary,
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),

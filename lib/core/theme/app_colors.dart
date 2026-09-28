@@ -76,6 +76,22 @@ class AppColorScheme {
 
   /// Semi-opaque [border] to match [glassBase].
   Color get glassBorder => border.withValues(alpha: 0.6);
+
+  // ─── On-color content tokens ────────────────────────────────────────────
+  // High-contrast text/icon color for content placed directly on a
+  // [primary]- or [secondary]-colored surface (filled buttons, pills,
+  // badges) — fixed white across all four palettes by design, mirroring
+  // `onPrimary`/`onSecondary` in lib/core/theme/app_theme.dart's Material
+  // ColorScheme. Not palette-adaptive, since [primary]/[secondary] are
+  // themselves chosen per palette to stay legible against white — same
+  // category as [AppColors.googleBrandBlue]: a documented, intentional
+  // fixed value, not a hardcoded literal.
+
+  /// Text/icon color for content on a [primary]-colored surface.
+  Color get onPrimary => Colors.white;
+
+  /// Text/icon color for content on a [secondary]-colored surface.
+  Color get onSecondary => Colors.white;
 }
 
 /// Static color tokens: the four adaptive palettes, semantic colors,
@@ -83,7 +99,7 @@ class AppColorScheme {
 ///
 /// Use [AppColors.forProfile] to resolve the correct [AppColorScheme] for a
 /// gender + brightness pair, or resolve directly against a manual
-/// Ocean/Blossom override — see lib/core/theme/app_theme.dart.
+/// Ocean/Blossom override — see lib/core/theme/theme_provider.dart.
 class AppColors {
   AppColors._();
 
@@ -194,7 +210,7 @@ class AppColors {
 
   /// Returns the correct [AppColorScheme] for a given gender + brightness
   /// pair. [gender] should be `'boy'`, `'girl'`, or `'unset'` (defaults to
-  /// Ocean/boy — see lib/core/theme/app_theme.dart for the full
+  /// Ocean/boy — see lib/core/theme/theme_provider.dart for the full
   /// gender-default vs. manual-override resolution, which this helper
   /// doesn't itself implement).
   static AppColorScheme forProfile({

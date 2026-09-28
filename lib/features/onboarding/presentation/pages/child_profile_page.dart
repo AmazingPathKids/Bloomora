@@ -116,13 +116,13 @@ class _ChildProfilePageNewState extends ConsumerState<ChildProfilePageNew>
             colorScheme: ColorScheme(
               brightness: scheme.isDark ? Brightness.dark : Brightness.light,
               primary: scheme.primary,
-              onPrimary: Colors.white,
+              onPrimary: scheme.onPrimary,
               secondary: scheme.secondary,
-              onSecondary: Colors.white,
+              onSecondary: scheme.onSecondary,
               surface: scheme.surface,
               onSurface: scheme.textPrimary,
               error: AppColors.error,
-              onError: Colors.white,
+              onError: AppColors.white,
             ),
           ),
           child: child!,
@@ -628,13 +628,13 @@ class _ChildProfilePageNewState extends ConsumerState<ChildProfilePageNew>
                       color: scheme.primary,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: scheme.isDark ? scheme.background : Colors.white,
+                        color: scheme.background,
                         width: 2,
                       ),
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.add_rounded,
-                      color: Colors.white,
+                      color: scheme.onPrimary,
                       size: 14,
                     ),
                   ),
@@ -708,9 +708,9 @@ class _ChildProfilePageNewState extends ConsumerState<ChildProfilePageNew>
       ),
       child: Text(
         'Age group: ${_ageGroup!.replaceAll(' years', '')}',
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 12,
-          color: Colors.white,
+          color: scheme.onPrimary,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -765,7 +765,7 @@ class _ChildProfilePageNewState extends ConsumerState<ChildProfilePageNew>
             Icon(
               icon,
               size: 28,
-              color: isSelected ? Colors.white : scheme.textSecondary,
+              color: isSelected ? scheme.onPrimary : scheme.textSecondary,
             ),
             const SizedBox(height: 6),
             Text(
@@ -773,7 +773,7 @@ class _ChildProfilePageNewState extends ConsumerState<ChildProfilePageNew>
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
-                color: isSelected ? Colors.white : scheme.textSecondary,
+                color: isSelected ? scheme.onPrimary : scheme.textSecondary,
               ),
             ),
           ],
@@ -841,13 +841,13 @@ class _ChildProfilePageNewState extends ConsumerState<ChildProfilePageNew>
           ),
         ],
       ),
-      child: const Center(
+      child: Center(
         child: SizedBox(
           width: 24,
           height: 24,
           child: CircularProgressIndicator(
             strokeWidth: 2,
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+            valueColor: AlwaysStoppedAnimation<Color>(scheme.onPrimary),
           ),
         ),
       ),

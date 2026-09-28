@@ -118,7 +118,7 @@ class _EmailVerificationPageState
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Invalid code. Please try again.'),
-            backgroundColor: Colors.red,
+            backgroundColor: AppColors.error,
           ),
         );
         for (final c in _otpControllers) { c.clear(); }
@@ -305,18 +305,18 @@ class _EmailVerificationPageState
                       ),
                       child: Center(
                         child: _isLoading
-                            ? const SizedBox(
+                            ? SizedBox(
                                 width: 22,
                                 height: 22,
                                 child: CircularProgressIndicator(
                                   strokeWidth: 2.5,
-                                  color: Colors.white,
+                                  color: scheme.onPrimary,
                                 ),
                               )
-                            : const Text(
+                            : Text(
                                 'Verify Email',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: scheme.onPrimary,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,
                                 ),
